@@ -27,7 +27,7 @@ gradSchemes
 }
 
 //Erste Ordnung
-
+/*
 divSchemes
 {
 default         		none;
@@ -37,7 +37,7 @@ div(phi,epsilon)		Gauss upwind;
 div(phi,k) 			Gauss upwind;
 div((nuEff*dev2(T(grad(U))))) 	Gauss linear;
 }
-/*
+*/
 //Zweite Ordnung
 divSchemes
 {
@@ -48,7 +48,7 @@ div(phi,epsilon)		Gauss linearUpwind default;
 div(phi,k)  			Gauss linearUpwind default;
 div((nuEff*dev2(T(grad(U))))) 	Gauss linear;
 }
-
+/*
 //Zweite Ordnung more accurate
 divSchemes
 {
