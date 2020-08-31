@@ -16,20 +16,20 @@ FoamFile
 
 convertToMeters 1;
 
-xmin -5.0;
-xmax  5.0;
-ymin -5.0;
-ymax  5.0;
-zmin -4.0;
-zmax  2.2;
+xmin -0.5;
+xmax  0.5;
+ymin -0.5;
+ymax  0.5;
+zmin -0.2;
+zmax  0.5;
 
 xcells 50;
 ycells 50;
-zcells 31;
+zcells 35;
 
-dx 0.2;
-dy 0.2;
-dz 0.2;
+dx 0.02;
+dy 0.02;
+dz 0.02;
 
 lx #calc "$xmax - $xmin";
 ly #calc "$ymax - $ymin";

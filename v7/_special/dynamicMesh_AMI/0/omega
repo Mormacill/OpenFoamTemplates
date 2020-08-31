@@ -10,6 +10,7 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
+    location    "0";
     object      omega;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -42,25 +43,23 @@ boundaryField
     }
     maxZ
     {
-        type            omegaWallFunction;
-        value           $internalField;
+        type            zeroGradient;
     }
-    AMI
-    {
-        type            cyclicAMI;
-        value           $internalField;
-    }
-    AMI_slave
-    {
-        type            cyclicAMI;
-        value           $internalField;
-    }
-    ruhr
+    rad
     {
         type            omegaWallFunction;
-        value           $internalField;
+        value           uniform 0.0408;
     }
-
+    ami
+    {
+        type            cyclicAMI;
+        value           uniform 0.0408;
+    }
+    ami_slave
+    {
+        type            cyclicAMI;
+        value           uniform 0.0408;
+    }
 }
 
 

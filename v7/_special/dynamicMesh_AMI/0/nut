@@ -10,6 +10,7 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
+    location    "0";
     object      nut;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -22,46 +23,50 @@ boundaryField
 {
     minX
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
     maxX
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
     minY
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
     maxY
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
     minZ
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
     maxZ
     {
-        type            nutkWallFunction;
-        value           $internalField;
-
+        type            calculated;
+        value           uniform 0;
     }
-    AMI
-    {
-        type            cyclicAMI;
-        value           $internalField;
-    }
-    AMI_slave
-    {
-        type            cyclicAMI;
-        value           $internalField;
-    }
-    ruhr
+    rad
     {
         type            nutkWallFunction;
-        value           $internalField;
+        value           uniform 0;
     }
-
+    ami
+    {
+        type            cyclicAMI;
+        value           uniform 0;
+    }
+    ami_slave
+    {
+        type            cyclicAMI;
+        value           uniform 0;
+    }
 }
+
 
 // ************************************************************************* //

@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  7                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      MRFProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+zone1
+{
+    cellZone    MRF_zone;
+    active      yes;
+
+    // Fixed patches (by default they 'move' with the MRF zone)
+    nonRotatingPatches ();
+
+    origin    (0 0 0);
+    axis      (0 0 1);
+    omega     constant 314.159;	//360 deg/s
+}
+
+// ************************************************************************* //
+

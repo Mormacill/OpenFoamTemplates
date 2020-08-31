@@ -43,21 +43,21 @@ boundaryField
     }
     maxZ
     {
-        type            noSlip;
+        type            zeroGradient;
     }
-    AMI
-    {
-        type            cyclicAMI;
-        value           uniform (0 0 0);
-    }
-    AMI_slave
-    {
-        type            cyclicAMI;
-        value           uniform (0 0 0);
-    }
-    ruhr
+    rad
     {
         type            movingWallVelocity;
+        value           uniform (0 0 0);
+    }
+    ami
+    {
+        type            cyclicAMI;
+        value           uniform (0 0 0);
+    }
+    ami_slave
+    {
+        type            cyclicAMI;
         value           uniform (0 0 0);
     }
 }

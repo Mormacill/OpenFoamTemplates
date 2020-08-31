@@ -43,26 +43,24 @@ boundaryField
     }
     maxZ
     {
-        type            kqRWallFunction;
-        value           $internalField;
-
-
+        type            zeroGradient;
     }
-    AMI
-    {
-        type            cyclicAMI;
-        value           $internalField;
-    }
-    AMI_slave
-    {
-        type            cyclicAMI;
-        value           $internalField;
-    }
-    ruhr
+    rad
     {
         type            kqRWallFunction;
-        value           $internalField;
+        value           uniform 0.00015;
     }
-
-
+    ami
+    {
+        type            cyclicAMI;
+        value           uniform 0.00015;
+    }
+    ami_slave
+    {
+        type            cyclicAMI;
+        value           uniform 0.00015;
+    }
 }
+
+
+// ************************************************************************* //

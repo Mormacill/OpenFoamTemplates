@@ -21,13 +21,13 @@ motionSolverLibs ("libfvMotionSolvers.so");
 
 motionSolver    solidBody;
 
-cellZone        rotatingZone;
+cellZone        AMI_zone;
 
 solidBodyMotionFunction  rotatingMotion;
 
 origin      (0 0 0);
 axis        (0 0 1);
-omega        constant 0.62;
+omega        constant 6.283;  // 1 U/m
 
 // ************************************************************************* //
 

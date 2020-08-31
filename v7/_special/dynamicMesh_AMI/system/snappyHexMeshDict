@@ -29,16 +29,20 @@ addLayers       false;
 // - to 'snap' the mesh boundary to the surface
 geometry
 {
-    AMI
+
+
+    rad
     {
         type triSurfaceMesh;
-        file "ami.stl";
+        file "rad.stl";
     }
 
-    ruhr
+    ami
     {
-        type triSurfaceMesh;
-        file "wall.stl";
+	type searchableCylinder;
+	point1 (0 0 -0.005);
+	point2 (0 0 0.165);
+	radius 0.16;
     }
     
     
@@ -85,14 +89,11 @@ castellatedMeshControls
     // This is a featureEdgeMesh, read from constant/triSurface for now.
     features
     (
-        {
-            file "ami.extendedFeatureEdgeMesh";
-            level 4;
-        }
+
 
         {
-            file "wall.extendedFeatureEdgeMesh";
-            level 3;
+            file "rad.extendedFeatureEdgeMesh";
+            level 4;
         }
 
 	
@@ -111,25 +112,26 @@ castellatedMeshControls
 
     refinementSurfaces
     {
-        AMI
-        {
-            level (4 4); // Note: better: levels 3 3
-            faceType boundary;
-            cellZone rotatingZone;
-            faceZone rotatingZone;
-            cellZoneInside inside;
-        }
 
-        ruhr
+        rad
         {
             // Surface-wise min and max refinement level
-            level (3 3);
+            level (4 4);
         }
-
+	
+	ami
+	{
+		level (2 2);
+		faceZone AMI_zone;
+		cellZone AMI_zone;
+		cellZoneInside inside;
+		faceType boundary;
+		
+	}
 	
     }
 
-    resolveFeatureAngle 30;
+    resolveFeatureAngle 5;
 
 
     // Region-wise refinement
@@ -166,7 +168,7 @@ castellatedMeshControls
     // NOTE: This point should never be on a face, always inside a cell, even
     // after refinement.
     // This is an outside point locationInMesh (-0.033 -0.033 0.0033);
-    locationInMesh (0 0 -1);// Inside point
+    locationInMesh (0 0 0.4);// Inside point
 
     // Whether any faceZones (as specified in the refinementSurfaces)
     // are only on the boundary of corresponding cellZones or also allow

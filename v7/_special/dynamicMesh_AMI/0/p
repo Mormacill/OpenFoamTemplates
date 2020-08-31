@@ -48,24 +48,23 @@ boundaryField
     }
     maxZ
     {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    rad
+    {
         type            fixedFluxPressure;
         gradient        uniform 0;
         value           uniform 0;
     }
-    AMI
+    ami
     {
         type            cyclicAMI;
         value           uniform 0;
     }
-    AMI_slave
+    ami_slave
     {
         type            cyclicAMI;
-        value           uniform 0;
-    }
-    ruhr
-    {
-        type            fixedFluxPressure;
-        gradient        uniform 0;
         value           uniform 0;
     }
 }

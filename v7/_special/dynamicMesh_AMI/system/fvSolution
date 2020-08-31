@@ -20,7 +20,7 @@ solvers
     "(p|pcorr)"
     {
         solver          PCG;
-        tolerance       1e-06;
+        tolerance       1e-05;
         relTol          0.1;
         preconditioner  DIC;
     }

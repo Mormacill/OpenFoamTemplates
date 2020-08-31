@@ -1,0 +1,49 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // Example:pick up internal faces on outside of cellSet
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    // Load initial cellSet
+    {
+        name    MRF_zone;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+		p1 (0 0 -0.005);
+		p2 (0 0 0.165);
+		radius 0.16;
+        }
+    }
+
+    
+    {
+	name    MRF_zone;
+        type    cellZoneSet;
+        action  new;
+        source setToCellZone;
+        sourceInfo
+    	{
+        set MRF_zone;           // name of cellSet
+    	}
+    }
+);
+
+// ************************************************************************* //

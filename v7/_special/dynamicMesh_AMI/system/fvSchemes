@@ -22,27 +22,46 @@ ddtSchemes
 
 gradSchemes
 {
-    default         Gauss linear;
+    default         cellLimited Gauss linear 1;
+    grad(U)	    cellLimited Gauss linear 1;
 }
 
 //Erste Ordnung
+/*
 divSchemes
 {
-div(phi,U) Gauss upwind;
-div(phi,omega) Gauss upwind;
-div(phi,k) Gauss upwind;
-div((nuEff*dev2(T(grad(U))))) Gauss linear;
+default         		none;
+div(phi,U) 			Gauss upwind;
+div(phi,omega) 			Gauss upwind;
+div(phi,epsilon)		Gauss upwind;
+div(phi,k) 			Gauss upwind;
+div((nuEff*dev2(T(grad(U))))) 	Gauss linear;
 }
-/*
+*/
 //Zweite Ordnung
 divSchemes
 {
-div(phi,U) Gauss linearUpwind grad(U);
-div(phi,omega) Gauss linearUpwind default;
-div(phi,k) Gauss linearUpwind default;
-div((nuEff*dev2(T(grad(U))))) Gauss linear;
+default         		none;
+div(phi,U)  			Gauss linearUpwind grad(U);
+div(phi,omega)  		Gauss linearUpwind default;
+div(phi,epsilon)		Gauss linearUpwind default;
+div(phi,k)  			Gauss linearUpwind default;
+div((nuEff*dev2(T(grad(U))))) 	Gauss linear;
+}
+/*
+//Zweite Ordnung more accurate
+divSchemes
+{
+default         		none;
+div(phi,U)  			Gauss linear;
+div(phi,omega)  		Gauss linear;
+div(phi,epsilon)		Gauss linear;
+div(phi,k)  			Gauss linear;
+div((nuEff*dev2(T(grad(U))))) 	Gauss linear;
 }
 */
+
+
 laplacianSchemes
 {
     default         Gauss linear corrected;
