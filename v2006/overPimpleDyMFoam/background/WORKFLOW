@@ -1,0 +1,8 @@
+mesh moving_object
+
+mesh background
+mergeMeshes . ../moving_object -overwrite
+topoSet
+topoSet -dict system/topoSetDict_movingZone
+setFields
+overPimpleDyMFoam
