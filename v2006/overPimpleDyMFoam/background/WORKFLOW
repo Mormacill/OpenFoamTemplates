@@ -1,4 +1,5 @@
 mesh moving_object
+transformPoints -translate '(0 10 0)'
 
 mesh background
 mergeMeshes . ../moving_object -overwrite
