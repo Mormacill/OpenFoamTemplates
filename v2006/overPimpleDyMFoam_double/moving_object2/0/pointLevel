@@ -617409,7 +617409,7 @@ internalField   nonuniform List<scalar>
 
 boundaryField
 {
-    overset
+    overset2
     {
         type            calculated;
     }

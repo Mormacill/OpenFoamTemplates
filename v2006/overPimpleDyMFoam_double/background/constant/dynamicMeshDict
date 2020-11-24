@@ -15,33 +15,34 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 dynamicFvMesh       dynamicOversetFvMesh;
-
-motionSolver solidBody;
-
 motionSolverLibs ( "libfvMotionSolvers.so" );
-       
-       cellZone            movingZone1;
-       solidBodyMotionFunction linearMotion;
-       linearMotionCoeffs
-       {
-           velocity        (0 -1 0);
-       }
 
-       cellZone            movingZone2;
-       solidBodyMotionFunction linearMotion;
-       linearMotionCoeffs
-       {
-           velocity        (0 -1 0);
-       }
+motionSolver          multiSolidBodyMotionSolver;
+
+
+
+
        
-      
-dynamicOversetFvMeshCoeffs
+movingZone1
 {
+       solidBodyMotionFunction linearMotion;
+       linearMotionCoeffs
+       {
+           velocity        (0 -1 0);
+       }
+}
 
-//solver          multiSolidBodyMotionSolver;
-//multiSolidBodyMotionSolverCoeffs
+movingZone2
+{
+       solidBodyMotionFunction linearMotion;
+       linearMotionCoeffs
+       {
+           velocity        (0 -1 0);
+       }
+}    
+      
 
- 
- }
+
+
 
 // ************************************************************************* //

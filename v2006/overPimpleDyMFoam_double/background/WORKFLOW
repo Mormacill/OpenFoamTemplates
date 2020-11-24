@@ -11,4 +11,5 @@ mergeMeshes . ../moving_object2 -overwrite
 topoSet -dict system/topoSetDict_mo_1_2			define boxToCell
 topoSet -dict system/topoSetDict_movingZone_1_2
 setFields
+clearGroups ins constant/polymesh/boundary
 overPimpleDyMFoam

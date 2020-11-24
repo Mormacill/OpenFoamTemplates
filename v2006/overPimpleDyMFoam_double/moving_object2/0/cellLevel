@@ -510877,7 +510877,7 @@ internalField   nonuniform List<scalar>
 
 boundaryField
 {
-    overset
+    overset2
     {
         type            overset;
         value           uniform 0;

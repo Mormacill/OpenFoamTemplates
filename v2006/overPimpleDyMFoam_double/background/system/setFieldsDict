@@ -33,15 +33,6 @@ regions
         );
     }
 
-    cellToCell
-    {
-        set c10;
-
-        fieldValues
-        (
-            volScalarFieldValue zoneID 0
-        );
-    }
 
     cellToCell
     {
@@ -55,7 +46,7 @@ regions
 
     cellToCell
     {
-        set c11;
+        set c2;
 
         fieldValues
         (

@@ -16,8 +16,38 @@ FoamFile
 
 actions
 (
+
+
     {
         name    c0;
+        type    cellSet;
+        action  new;
+        source  regionToCell;
+        sourceInfo
+        {
+            insidePoints ((0 1 0));
+        }
+    }
+
+    {
+        name    c1;
+        type    cellSet;
+        action  new;
+        source  cellToCell;
+        sourceInfo
+        {
+            set c0;
+        }
+    }
+
+    {
+        name    c1;
+        type    cellSet;
+        action  invert;
+    }
+
+    {
+        name    c0left;
         type    cellSet;
         action  new;
         source  boxToCell;
@@ -30,6 +60,17 @@ actions
     {
         name    c1;
         type    cellSet;
+        action  delete;
+        source  cellToCell;
+        sourceInfo
+        {
+            set c0left;
+        }
+    }
+//-------------------------------------------------------------
+    {
+        name    c2;
+        type    cellSet;
         action  new;
         source  cellToCell;
         sourceInfo
@@ -39,15 +80,13 @@ actions
     }
 
     {
-        name    c1;
+        name    c2;
         type    cellSet;
         action  invert;
     }
 
-//////////////////////////////////////////////////////////////////
-
     {
-        name    c10;
+        name    c0right;
         type    cellSet;
         action  new;
         source  boxToCell;
@@ -58,21 +97,16 @@ actions
     }
 
     {
-        name    c11;
+        name    c2;
         type    cellSet;
-        action  new;
+        action  delete;
         source  cellToCell;
         sourceInfo
         {
-            set c0;
+            set c0right;
         }
     }
 
-    {
-        name    c11;
-        type    cellSet;
-        action  invert;
-    }
 );
 
 // ************************************************************************* //

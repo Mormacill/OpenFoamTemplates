@@ -21,7 +21,7 @@ internalField   uniform 0;
 
 boundaryField
 {
-    "(overset|overset_moving_object2)"
+    "(overset1|overset2)"
     {
         type            overset;
 	value		$internalField;

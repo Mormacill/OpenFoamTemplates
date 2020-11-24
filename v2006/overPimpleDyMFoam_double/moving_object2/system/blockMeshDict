@@ -62,7 +62,7 @@ edges
 
 boundary
 (
-    overset
+    overset2
     {
         type overset;
         faces

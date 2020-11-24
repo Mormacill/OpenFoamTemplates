@@ -34,7 +34,7 @@ actions
         source  setToCellZone;
         sourceInfo
         {
-            set c11;
+            set c2;
         }
     }
 );
