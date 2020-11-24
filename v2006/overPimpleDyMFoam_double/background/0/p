@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+     "(overset|overset_moving_object2)"
+    {
+        type            overset;
+	value		$internalField;
+    }
+wall
+{
+        type            zeroGradient;
+}
+
+
+maxX
+{
+        type            fixedValue;
+        value           $internalField;
+}
+
+minX
+{
+        type            fixedValue;
+        value           $internalField;
+}
+
+maxY
+{
+        type            fixedValue;
+        value           $internalField;
+}
+
+minY
+{
+        type            fixedValue;
+        value           $internalField;
+}
+
+maxZ
+{
+        type            fixedValue;
+        value           $internalField;
+}
+
+minZ
+{
+        type            zeroGradient;
+}
+}
+// ************************************************************************* //

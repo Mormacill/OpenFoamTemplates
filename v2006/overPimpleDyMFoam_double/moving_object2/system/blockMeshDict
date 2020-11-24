@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+xmin  -0.5;
+xmax  0.5;
+ymin -1;
+ymax  1;
+zmin  -0.2;
+zmax  0.5;
+
+xcells 40;
+ycells 40;
+zcells 40;
+
+dx 0.025;
+dy 0.05;
+dz 0.0175;
+
+lx #calc "$xmax - $xmin";
+ly #calc "$ymax - $ymin";
+lz #calc "$zmax - $zmin";
+
+xcells #calc "abs($lx / $dx)";
+ycells #calc "abs($ly / $dy)";
+zcells #calc "abs($lz / $dz)";
+
+vertices        
+(
+    ($xmin  $ymin  $zmin)
+    ($xmax  $ymin  $zmin)
+    ($xmax  $ymax  $zmin)
+    ($xmin  $ymax  $zmin)
+    ($xmin  $ymin  $zmax)
+    ($xmax  $ymin  $zmax)
+    ($xmax  $ymax  $zmax)
+    ($xmin  $ymax  $zmax)
+);
+
+blocks          
+(
+    hex (0 1 2 3 4 5 6 7) ($xcells $ycells $zcells) simpleGrading (1 1 1)
+);
+
+edges           
+(
+);
+
+boundary
+(
+    overset
+    {
+        type overset;
+        faces
+        (
+        (0 4 7 3)
+        (2 6 5 1)
+        (1 5 4 0)
+        (3 7 6 2)
+        (0 3 2 1)
+        (4 5 6 7)
+        );
+    }         
+);
+mergePatchPairs 
+(
+);
+
+// ************************************************************************* //

@@ -1,0 +1,14 @@
+mesh moving_object1
+transformPoints -translate '(0 10 0)'
+mesh moving_object2
+transformPoints -translate '(0 5 0)'
+
+mesh background
+
+mergeMeshes . ../moving_object1 -overwrite
+mergeMeshes . ../moving_object2 -overwrite
+
+topoSet -dict system/topoSetDict_mo_1_2			define boxToCell
+topoSet -dict system/topoSetDict_movingZone_1_2
+setFields
+overPimpleDyMFoam
