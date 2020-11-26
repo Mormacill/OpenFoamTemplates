@@ -1,7 +1,7 @@
-mesh moving_object
+mesh moving_object (blockMesh, surfaceFeatureExtract, snappyhexmesh -overwrite)
 transformPoints -translate '(0 10 0)'
 
-mesh background
+mesh background (blockMesh, snappyhexmesh -overwrite -> refinement)
 mergeMeshes . ../moving_object -overwrite
 topoSet
 topoSet -dict system/topoSetDict_movingZone
