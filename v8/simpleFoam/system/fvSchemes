@@ -48,7 +48,7 @@ div(phi,epsilon)		Gauss linearUpwind default;
 div(phi,k)  			Gauss linearUpwind default;
 div((nuEff*dev2(T(grad(U))))) 	Gauss linear;
 }
-/*
+
 //Zweite Ordnung more accurate
 divSchemes
 {
