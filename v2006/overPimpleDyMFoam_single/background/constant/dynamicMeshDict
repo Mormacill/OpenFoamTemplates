@@ -20,7 +20,6 @@ motionSolver solidBody;
 
 motionSolverLibs ( "libfvMotionSolvers.so" );
        
-       solidBodyMotionFunction linearMotion;
        cellZone            movingZone;
        solidBodyMotionFunction linearMotion;
        linearMotionCoeffs
