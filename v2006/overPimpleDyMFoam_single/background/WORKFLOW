@@ -1,4 +1,4 @@
-mesh moving_object (blockMesh, surfaceFeatureExtract, snappyhexmesh -overwrite)
+mesh moving_object (blockMesh, surfaceFeatureExtract, snappyHexMesh -overwrite)
 transformPoints -translate '(0 10 0)'
 
 mesh background (blockMesh, snappyhexmesh -overwrite -> refinement)
