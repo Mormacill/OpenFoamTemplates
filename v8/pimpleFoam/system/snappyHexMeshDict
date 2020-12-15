@@ -126,7 +126,7 @@ castellatedMeshControls
         
     }
 
-    resolveFeatureAngle 90;
+    resolveFeatureAngle 10;
 
 
     // Region-wise refinement
