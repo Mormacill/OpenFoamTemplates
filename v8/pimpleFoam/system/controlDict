@@ -33,7 +33,7 @@ writeInterval   0.01;
 
 purgeWrite      0;
 
-writeFormat     ascii;
+writeFormat     binary;
 
 writePrecision  7;
 
@@ -54,7 +54,7 @@ functions
 {
     #includeFunc pressureDifferencePatch 
     #includeFunc residuals
-    #includeFunc yPlus
+    #includeFunc yPlus(log=yes)
 }
 
 // ************************************************************************* //

@@ -17,6 +17,6 @@ FoamFile
 surfaces ("flange.stl");
 
 // Identify a feature when angle between faces < includedAngle
-includedAngle   150;
+includedAngle   170;
 
 // ************************************************************************* //
