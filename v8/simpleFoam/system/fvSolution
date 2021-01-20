@@ -2,7 +2,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  7
+    \\  /    A nd           | Version:  8
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -25,7 +25,7 @@ solvers
         preconditioner  DIC;
     }
 
-    "(U|k|epsilon|omega|R|nuTilda|nut)"
+    "(U|k|epsilon|omega|R|)"
     {
         solver          PBiCGStab;
         tolerance       1e-08;

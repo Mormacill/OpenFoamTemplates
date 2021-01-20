@@ -2,7 +2,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  7  
+    \\  /    A nd           | Version:  8
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -35,11 +35,6 @@ geometry
         file "wall.stl";
     }
 
-    out
-    {
-        type triSurfaceMesh;
-        file "out.stl";
-    }
 
 }
 
@@ -88,12 +83,6 @@ castellatedMeshControls
             file "wall.extendedFeatureEdgeMesh";
             level 1;
         }
-
-	{
-            file "out.extendedFeatureEdgeMesh";
-            level 4;
-        }
-
 	
     );
 
@@ -116,13 +105,6 @@ castellatedMeshControls
             level (1 1);
         }
 
-	out
-        {
-            // Surface-wise min and max refinement level
-            level (4 4);
-        }
-
-        
         
     }
 
@@ -215,15 +197,10 @@ addLayersControls
     // Per final patch (so not geometry!) the layer information
     layers
     {
-   /*     "wall.*"
+        "wall.*"
         {
             nSurfaceLayers 10;
         }  
-
-	"out.*"
-        {
-            nSurfaceLayers 5;
-        } */
 
 	
     }
