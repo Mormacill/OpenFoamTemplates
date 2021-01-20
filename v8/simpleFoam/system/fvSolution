@@ -25,7 +25,7 @@ solvers
         preconditioner  DIC;
     }
 
-    "(U|k|epsilon|omega|R|)"
+    "(U|k|epsilon|omega|R)"
     {
         solver          PBiCGStab;
         tolerance       1e-08;
