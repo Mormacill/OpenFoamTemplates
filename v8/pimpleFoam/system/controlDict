@@ -53,7 +53,7 @@ maxCo           1.0;
 functions
 {
     #includeFunc residuals
-    #includeFunc yPlus(log=yes)
+    #includeFunc yPlus(log=true)
 }
 
 // ************************************************************************* //
