@@ -48,7 +48,7 @@ runTimeModifiable true;
 functions
 {
     #includeFunc residuals
-    #includeFunc yPlus(log=yes)
+    #includeFunc yPlus(log=true)
 }
 
 // ************************************************************************* //
